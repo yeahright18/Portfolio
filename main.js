@@ -1,53 +1,42 @@
-let menuIcon = document.querySelector('#menu-icon');
-let navbar = document.querySelector('.navbar');
-
-menuIcon.onclick = () => {
-  menuIcon.classList.toggle('fa-xmark');
-  navbar.classList.toggle('active')
-}
-
-let sections = document.querySelectorAll('section');
-let navLinks = document.querySelector('header nav a');
-
-window.onscroll = () => {
-  sections.forEach(sec => {
-    let top = window.scrollY;
-    let offset = sec.offsetTop - 150;
-    let height = sec.offsetHeight;
-    let id = sec.getAttribute('id');
-
-    if(top >= offset && top < offset + height) {
-      navLinks.forEach.apply(links => {
-        links.classList.remove('active');
-        document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
-
-      });
-    };
-  });
-
-  let header = document.querySelector('header');
-  header.classList.toggle('sticky', window.scrollY > 100);
-
-  menuIcon.classList.remove('fa-xmark');
-  navbar.classList.remove('active');
-};
-
-ScrollReveal({
-  distance: '80px',
-  duration: 2000,
-  delay: 200,
-});
-
-ScrollReveal().reveal('.home-content, heading', { origin: 'top' });
-ScrollReveal().reveal('.home-img, .portfolio-box', { origin: 'button' });
-ScrollReveal().reveal('.home-contanct h1, .about-img', { origin: 'left'});
-ScrollReveal().reveal('home-contant p, .about-content', { origin: 'right' });
-
-
 const typed = new Typed('.multiple-text', {
   strings: ['Cybersecurity Practitioner', 'Developer', 'IT enthusiast'],
   typeSpeed: 70,
   backSpeed: 70,
   backDelay: 1000,
   loop: true,
+});
+
+document.getElementById('show-more-btn').addEventListener('click', function() {
+  var hiddenProjects = document.querySelector('.hidden-projects');
+  if (hiddenProjects.style.display == 'none') {
+      hiddenProjects.style.display = 'grid';  
+      this.textContent = 'Show Less';  
+  } else {
+      hiddenProjects.style.display = 'none';
+      this.textContent = 'Show More'; 
+  }
+});
+
+
+function showContactInfo() {
+  var modal = document.getElementById("contactModal");
+  modal.style.display = "block";
+}
+
+function closeModal() {
+  var modal = document.getElementById("contactModal");
+  modal.style.display = "none";
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  var contactButton = document.querySelector(".contact-btn");
+    
+    contactButton.addEventListener("click", function(event) {
+      event.preventDefault();  
+      showContactInfo(); 
+    });
+
+    
+    var closeButton = document.querySelector(".close-btn");
+    closeButton.addEventListener("click", closeModal);
 });
