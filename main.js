@@ -1,10 +1,10 @@
-const typed = new Typed('.multiple-text', {
-  strings: ['Cybersecurity Practitioner', 'Developer', 'IT enthusiast'],
-  typeSpeed: 70,
-  backSpeed: 70,
-  backDelay: 1000,
-  loop: true,
-});
+// const typed = new Typed('.multiple-text', {
+//   strings: ['Cybersecurity Practitioner', 'Student', 'IT specialist'],
+//   typeSpeed: 70,
+//   backSpeed: 70,
+//   backDelay: 1000,
+//   loop: true,
+// });
 
 document.getElementById('show-more-btn').addEventListener('click', function() {
   var hiddenProjects = document.querySelector('.hidden-projects');
